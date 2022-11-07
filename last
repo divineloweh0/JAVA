@@ -1,0 +1,94 @@
+var type = "Script";
+
+var name = "Authorization Script";
+
+console.log("=== " + type + ": " + name + ": start");
+
+console.log(
+  JSON.stringify({
+    typeTwLocalUser: typeof tw.local.user,
+    user: tw.local.user,
+    twLocalAdmins: tw.local.admins,
+    power: tw.local.power,
+    powers: tw.local.powers,
+    twLocal: tw.local,
+  })
+);
+
+// var userId = tw.local.user.id;
+var userId = "lowehdivine@ibm.com";
+tw.local.userRoleDoc = "";
+tw.local.userRoleApp = "";
+
+var isAdmin = false;
+var isPower = false;
+
+for (var i = 0; i < tw.local.admins; i++) {
+  if (tw.local.admins[i] == userId) {
+    isAdmin = true;
+  }
+}
+
+if (!isAdmin) {
+  for (var i = 0; i < tw.local.power; i++) {
+    if (tw.local.power[i] == userId) {
+      isPower = true;
+    }
+  }
+}
+
+if (isAdmin) {
+  tw.local.userRoleApp = "Admin";
+} else if (isPower) {
+  tw.local.userRoleApp = "Power";
+} else {
+  tw.local.userRoleApp = "Regular";
+}
+
+for (var i = 0; i < tw.local.docs[1].owner; i++) {
+  if (tw.local.docs[1].owner[i] == userId) {
+    tw.local.userRoleDoc = "owner";
+  }
+}
+
+if (tw.local.userRoleDoc == "") {
+  for (var i = 0; i < tw.local.docs[1].author; i++) {
+    if (tw.local.docs[1].author[i] == userId) {
+      tw.local.userRoleDoc = "author";
+    }
+  }
+}
+
+if (tw.local.userRoleDoc == "") {
+  for (var i = 0; i < tw.local.docs[1].editor; i++) {
+    if (tw.local.docs[1].editor[i] == userId) {
+      tw.local.userRoleDoc = "editor";
+    }
+  }
+}
+
+if (tw.local.userRoleDoc == "") {
+  for (var i = 0; i < tw.local.docs[1].reviewer; i++) {
+    if (tw.local.docs[1].reviewer[i] == userId) {
+      tw.local.userRoleDoc = "reviewer";
+    }
+  }
+}
+
+if (tw.local.userRoleDoc == "") {
+  for (var i = 0; i < tw.local.docs[1].approvers; i++) {
+    if (tw.local.docs[1].approvers[i] == userId) {
+      tw.local.userRoleDoc = "approvers";
+    }
+  }
+}
+
+if (tw.local.userRoleDoc == "") {
+  for (var i = 0; i < tw.local.docs[1].reader; i++) {
+    if (tw.local.docs[1].reader[i] == userId) {
+      tw.local.userRoleDoc = "reader";
+    }
+  }
+}
+
+console.log("=== " + type + ": " + name + ": end");
