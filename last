@@ -1,94 +1,41 @@
-var type = "Script";
-
-var name = "Authorization Script";
-
-console.log("=== " + type + ": " + name + ": start");
-
-console.log(
-  JSON.stringify({
-    typeTwLocalUser: typeof tw.local.user,
-    user: tw.local.user,
-    twLocalAdmins: tw.local.admins,
-    power: tw.local.power,
-    powers: tw.local.powers,
-    twLocal: tw.local,
-  })
-);
-
-// var userId = tw.local.user.id;
-var userId = "lowehdivine@ibm.com";
-tw.local.userRoleDoc = "";
-tw.local.userRoleApp = "";
-
-var isAdmin = false;
-var isPower = false;
-
-for (var i = 0; i < tw.local.admins; i++) {
-  if (tw.local.admins[i] == userId) {
-    isAdmin = true;
-  }
-}
-
-if (!isAdmin) {
-  for (var i = 0; i < tw.local.power; i++) {
-    if (tw.local.power[i] == userId) {
-      isPower = true;
-    }
-  }
-}
-
-if (isAdmin) {
-  tw.local.userRoleApp = "Admin";
-} else if (isPower) {
-  tw.local.userRoleApp = "Power";
-} else {
-  tw.local.userRoleApp = "Regular";
-}
-
-for (var i = 0; i < tw.local.docs[1].owner; i++) {
-  if (tw.local.docs[1].owner[i] == userId) {
-    tw.local.userRoleDoc = "owner";
-  }
-}
-
-if (tw.local.userRoleDoc == "") {
-  for (var i = 0; i < tw.local.docs[1].author; i++) {
-    if (tw.local.docs[1].author[i] == userId) {
-      tw.local.userRoleDoc = "author";
-    }
-  }
-}
-
-if (tw.local.userRoleDoc == "") {
-  for (var i = 0; i < tw.local.docs[1].editor; i++) {
-    if (tw.local.docs[1].editor[i] == userId) {
-      tw.local.userRoleDoc = "editor";
-    }
-  }
-}
-
-if (tw.local.userRoleDoc == "") {
-  for (var i = 0; i < tw.local.docs[1].reviewer; i++) {
-    if (tw.local.docs[1].reviewer[i] == userId) {
-      tw.local.userRoleDoc = "reviewer";
-    }
-  }
-}
-
-if (tw.local.userRoleDoc == "") {
-  for (var i = 0; i < tw.local.docs[1].approvers; i++) {
-    if (tw.local.docs[1].approvers[i] == userId) {
-      tw.local.userRoleDoc = "approvers";
-    }
-  }
-}
-
-if (tw.local.userRoleDoc == "") {
-  for (var i = 0; i < tw.local.docs[1].reader; i++) {
-    if (tw.local.docs[1].reader[i] == userId) {
-      tw.local.userRoleDoc = "reader";
-    }
-  }
-}
-
-console.log("=== " + type + ": " + name + ": end");
+Configure dojo
+LDY APP QMX WW SG Doc Lib Ctrl 22 10 27(MAQDLC4)?locale=en:443 Call startFlow
+LDY APP QMX WW SG Doc Lib Ctrl 22 10 27(MAQDLC4)?locale=en:90 StartFlow
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:21:59.928Z]  com.ibm.bpm.coachflow.engine.coachFlowEngine.constructor >> ENTRY 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:21:59.929Z]  com.ibm.bpm.coachflow.engine.coachFlowEngine.constructor << EXIT 
+LDY APP QMX WW SG Doc Lib Ctrl 22 10 27(MAQDLC4)?locale=en:171 Running with provided model ID: 1.f56b67bb-fbf9-49df-8443-0c01f86efea4
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:21:59.930Z]  com.ibm.bpm.coachflow.engine.coachFlowEngine.executeCoachFlowWithClientInterface >> ENTRY {"data":{"modelID":"1.f56b67bb-fbf9-49df-8443-0c01f86efea4","snapshotID":"2064.0133b20e-d450-4ae8-9557-e4a289d44d99","rawInputData":{"inputs":{}},"addressableUrl":"https://cpd-cp4ba.apps.wdc-automation-dev.core.cirrus.ibm.com/ae-pbk/LDY%20APP%20QMX%20WW%20SG%20Doc%20Lib%20Ctrl%2022%2010%2027(MAQDLC4)?locale=en","navigatorFeature":"","navigatorDesktop":"","appState":""},"configSet
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:21:59.930Z]  52519930.cf1
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:21:59.930Z] 52519930.cf1  setLogLevel: 2
+dojo.js?build=16638983265451667645656829:2 [Deprecation] Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.
+xhr @ dojo.js?build=16638983265451667645656829:2
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:00.315Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.DataContext.setProcessAppData: tw.system {"url":{},"coachValidation":{},"coachUtils":{},"dataChangeUtils":{},"processApp":{"id":"2066.86370758-74ef-4ec4-b2b1-8faca60a58cd","name":"LDY APP QMX WW SG Doc Lib Ctrl 22 10 27","acronym":"MAQDLC4","snapshot":{"id":"2064.0133b20e-d450-4ae8-9557-e4a289d44d99","name":null}}}
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:00.315Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner.start >> ENTRY "52519930.cf1"
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:00.316Z]  com.ibm.bpm.coachflow.engine.coachFlowEngine.executeCoachFlowWithClientInterface << EXIT 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:00.471Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.DataContext.setInstance: tw.system {"url":{},"coachValidation":{},"coachUtils":{},"dataChangeUtils":{},"processApp":{"id":"2066.86370758-74ef-4ec4-b2b1-8faca60a58cd","name":"LDY APP QMX WW SG Doc Lib Ctrl 22 10 27","acronym":"MAQDLC4","snapshot":{"id":"2064.0133b20e-d450-4ae8-9557-e4a289d44d99","name":null}},"user":{"id":"lowehdivine@ibm.com","locale":"en","teams":[]}}
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:00.471Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner.start_phase2: Service initialized 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:00.472Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._executeNode: Running the node (Start): 88884829-2c85-47cb-938e-12c027176d98 
+​ === Start: starting
+​ === Start: finished
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:00.858Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._transitionToNextNode: Completed running the node (Start): 88884829-2c85-47cb-938e-12c027176d98 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:00.859Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._executeNode: Running the node (init constants): 2025.5392a26e-ffd3-46ac-bdb5-ba3a103c4d4b 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:01.094Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._transitionToNextNode: Completed running the node (init constants): 2025.5392a26e-ffd3-46ac-bdb5-ba3a103c4d4b 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:01.094Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._executeNode: Running the node (init states): 2025.e742327a-8b53-4104-9375-19827ca8f0b3 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:01.323Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._transitionToNextNode: Completed running the node (init states): 2025.e742327a-8b53-4104-9375-19827ca8f0b3 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:01.324Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._executeNode: Running the node (sort and filter records by strings): 2025.93a88e95-3ddb-43a7-909e-e41609af6a62 
+​ === Script: sort and filter records by string: start
+​ === Script: sort and filter records by string: end
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:01.330Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._transitionToNextNode: Completed running the node (sort and filter records by strings): 2025.93a88e95-3ddb-43a7-909e-e41609af6a62 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:01.331Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._executeNode: Running the node (filter by access rights): 2025.7dc09ff8-665c-4f12-bb58-2db0929cdcaa 
+​ === Script: Documenet access roles: start
+​ {"twLocal":{"docs":[],"tmpDocs":[],"vars":{"constant":{"form":{"procedure":"NEEDED?","process":"process","SACheckList":"NEEDED?","table":"NEEDED?"},"listPageNames":{"dl":{},"dlc":{"by_author":"by_author","by_cat":"by_cat","by_department":"by_department","by_doc_type":"by_doc_type","by_location_by_status":"by_location_by_status","by_name":"by_name","by_number":"by_number","by_owner":"by_owner","by_process_by_status":"by_process_by_status","by_status":"by_status","by_current_approvers":"by_current_approvers","department_manual":"department_manual","my_documents":"my_documents","owner_out_of_date":"owner_out_of_date"},"ccs":{},"al":{}},"userDocRight":{"owner":"owner","author":"author","editor":"editor","reviewer":"reviewer","approver":"approver","reader":"reader"},"userRole":{"admin":"admin","power_user":"power_user","user":"user"},"visibility":{"required":"REQUIRED","editable":"EDITABLE","readonly":"READONLY","none":"NONE","def":"DEFAULT","hidden":"HIDDEN"},"filtering":{"prodPropAll":[{"name":"all","value":"all"},{"name":"production","value":"production"},{"name":"proposed","value":"proposed"}],"byNothing":"Currently displaying all documents","bySomething":"Currently displaying a filtered subset of documents","all":"all","production":"production","proposed":"proposed"}},"filters":{"byProdAuthorType":{"key1_value":"all"},"byProdCatType":{"key1_value":"all"},"byProdDeptStatus":{"key1_value":"all"},"byProdTypeCat":{"key1_value":"all"},"byProdLocationStatus":{"key1_value":"all"},"byProdName":{"key1_value":"all"},"byProdNumber":{"key1_value":"all"},"byProdOwnerType":{"key1_value":"all"},"byProcessStatusXxx":{"key1_value":"all"},"byProdStatus":{"key1_value":"all"},"byProdCurrentApprovers":{"key1_value":"all"},"byProdDepartmentManual":{"key1_value":"all"},"myDocsStatus":{"key1_value":"all"},"byProdOwnerOutOfDate":{"key1_value":"all"},"filteredBy":"Currently displaying all documents"},"states":{"currentListPage":"","isNewRecord":false,"isEditingRecord":false,"visibilityForAdmin":"DEFAULT","visibilityForApprover":"DEFAULT","visibilityForReviewer":"DEFAULT","visibilityRecordDisplaying":"DEFAULT","visibilityRecordEditing":"DEFAULT"},"user":{"access":{"isAllAccessRestrictionsDisabled":false,"isAdmin":false,"isApprover":false,"isReviewer":false},"id":"lowehdivine@ibm.com","locale":"en"},"trace":["action: init constants: start","action: init constants: end","action: init states: start","action: init states: end"]}}}
+​ -----------------------------
+​ === Script: Documenet access roles: end
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:01.348Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._transitionToNextNode: Completed running the node (filter by access rights): 2025.7dc09ff8-665c-4f12-bb58-2db0929cdcaa 
+coachflowengine_main.js?build=16638983265451667645656829:11 [2022-11-07T20:22:01.355Z] 52519930.cf1 com.ibm.bpm.coachflow.engine.core.FlowRunner._executeNode: Running the node (Prod Docs by Doc Type): 2025.2eb55301-8bdb-4a9a-b2e4-68d1dad97969 
+​ === tw.local.vars.trace ...
+​ Array(4)
+dojo.js?build=16638983265451667645656829:2 dojo version used by Coach is: 1.10.5 (ec427ec)
+LDY APP QMX WW SG Doc Lib Ctrl 22 10 27(MAQDLC4)?locale=en:362 Custom View Event: ActionEdit: load
+5LDY APP QMX WW SG Doc Lib Ctrl 22 10 27(MAQDLC4)?locale=en:357 Custom View Event: ActionEdit: view
+VM36664:3 Event: ActionTest: On load
